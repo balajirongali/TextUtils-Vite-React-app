@@ -15,7 +15,7 @@ import {
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] =useState(0);
   const [mode,setMode]=useState('light');
   const [alert,setAlert]=useState(null);
 
@@ -34,13 +34,13 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor='#042743';
       showAlert("Dark mode is Enabled","success");
-      document.title="TextUtils - Dark mode"
+      // document.title="TextUtils - Dark mode"
     }
     else{
       setMode('light')
       document.body.style.backgroundColor='white';
       showAlert("Light mode is Enabled","success");
-      document.title="TextUtils - Light mode"
+      // document.title="TextUtils - Light mode"
     }
   }
   return (
@@ -51,8 +51,8 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyse" mode={mode} />} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Trt TextUtils - word counter, character counter, remove extra spaces" mode={mode} />} />
           </Routes>
         </div>
       </Router>  
